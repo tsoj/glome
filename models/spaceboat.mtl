@@ -1,0 +1,14 @@
+# Blender MTL File: 'untitled4Triangles.blend'
+# Material Count: 3
+
+newmtl Material.002
+map_Kd sun.dds
+map_normal normal_map.dds
+
+newmtl Material.003
+map_Kd normal_map.dds
+map_normal normal_map.dds
+
+newmtl Material.004
+map_Kd glome.dds
+map_normal normal_normal_map.dds

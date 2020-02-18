@@ -1,0 +1,17 @@
+*
+!*.gitignore
+!*.cpp
+!*.hpp
+!*.h
+!*.txt
+!*/
+!*.sln
+!*.vcxproj
+!*.glsl
+!*.hlsl
+!*.bat
+x64/*
+*/cache/*
+*error*
+*warning*
+!*.md

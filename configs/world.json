@@ -1,0 +1,108 @@
+{
+  "objects": [
+    {
+      "name": "spaceboat",
+      "mesh_file": "models/spaceboat.obj",
+      "velocity": [0.0, 0.0, 10.0],
+      "position": [30.0, 0.0, 0.0],
+      "angular_velocity":
+      {
+        "value": 30.0,
+        "axis": [0.0, 1.0, 0.0]
+      },
+      "orientation":
+      {
+        "angle": 250.0,
+        "axis": [1.0, 1.0, 1.0]
+      }
+    },
+    {
+      "name": "monkey",
+      "mesh_file": "models/right_eared_monkey.obj",
+      "velocity": [0.0, 2.0, 5.0],
+      "position": [0.0, 0.0, 0.0],
+      "angular_velocity":
+      {
+        "value": 70.0,
+        "axis": [1.0, 1.0, 0.0]
+      },
+      "orientation":
+      {
+        "angle": 0.0,
+        "axis": [1.0, 1.0, 1.0]
+      }
+    },
+    {
+      "name": "cube",
+      "mesh_file": "models/cube.obj",
+      "velocity": [25.0, 0.0, 0.0],
+      "position": [100.0, 0.0, 50.0],
+      "angular_velocity":
+      {
+        "value": 0.0,
+        "axis": [1.0, 1.0, 0.0]
+      },
+      "orientation":
+      {
+        "angle": 180.0,
+        "axis": [0.0, 1.0, 0.0]
+      }
+    },
+    {
+      "name": "globe",
+      "mesh_file": "models/globe.obj",
+      "velocity": [0.0, 0.0, 10.0],
+      "position": [0.0, 0.0, 0.0],
+      "angular_velocity":
+      {
+        "value": 10.0,
+        "axis": [0.0, 1.0, 0.0]
+      },
+      "orientation":
+      {
+        "angle": 0.0,
+        "axis": [0.0, 1.0, 0.0]
+      }
+    },
+    {
+      "name": "light",
+      "light":
+      {
+        "intensity": 100.0,
+        "color": [1.0, 1.0, 1.0]
+      },
+      "velocity": [-30.0, -30.0, -30.0],
+      "position": [0.0, 30.0, 0.0]
+    },
+    {
+      "name": "camera entity",
+      "velocity": [0.0, 0.0, 0.0],
+      "position": [0.0, 0.0, 0.0],
+      "angular_velocity":
+      {
+        "value": 0.0,
+        "axis": [1.0, 1.0, 0.0]
+      },
+      "orientation":
+      {
+        "angle": 0.0,
+        "axis": [0.0, 1.0, 0.0]
+      },
+      "camera":
+      {
+        "field_of_view": 70.0
+      }
+    }
+  ],
+  "hypersphere_radius": 150.0,
+  "fog":
+  {
+    "color": [0.3, 0.3, 0.3],
+    "density": 0.8
+  },
+  "window":
+  {
+    "width": 1300,
+    "height": 900
+  }
+}
