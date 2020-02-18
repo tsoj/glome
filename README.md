@@ -1,23 +1,23 @@
 ## Glome
 
-<img src="https://gitlab.com/tsoj/glome/raw/5e96937fa29187adc6eb1805a233538ae01563bc/meta/glome.png" width="400" height="400" />
+<img src="https://gitlab.com/tsoj/glome_public/-/raw/master/meta/glome.png" width="400" height="400" />
 
 Renders 3D objects in the surface of a hypersphere.
 
 ##### Download:
 with [Git](https://git-scm.com/):
 ```
-git clone https://gitlab.com/tsoj/glome.git
+git clone https://gitlab.com/tsoj/glome_public.git
 ```
 with [Wget](https://www.gnu.org/software/wget/) and [Tar](https://www.gnu.org/software/tar/tar.html) (only works if repository is public):
 ```
-wget https://gitlab.com/tsoj/glome/-/archive/master/glome-master.tar.gz
-tar -xvzf glome-master.tar.gz
-mv glome-master glome
+wget https://gitlab.com/tsoj/glome_public/-/archive/master/glome-master_public.tar.gz
+tar -xvzf glome_public-master.tar.gz
+mv glome_public-master glome_public
 ```
 ##### Compile
 ```
-cd glome/
+cd glome_public/
 cmake .
 make
 ```
