@@ -11,7 +11,7 @@ git clone https://gitlab.com/tsoj/glome_public.git
 ```
 with [Wget](https://www.gnu.org/software/wget/) and [Tar](https://www.gnu.org/software/tar/tar.html) (only works if repository is public):
 ```
-wget https://gitlab.com/tsoj/glome_public/-/archive/master/glome-master_public.tar.gz
+wget https://gitlab.com/tsoj/glome_public/-/archive/master/glome_public-master.tar.gz
 tar -xvzf glome_public-master.tar.gz
 mv glome_public-master glome_public
 ```
