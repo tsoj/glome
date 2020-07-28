@@ -1,0 +1,3 @@
+/home/tsoj/Dokumente/Projects/glome_public/CMakeFiles/rebuild_cache.dir
+/home/tsoj/Dokumente/Projects/glome_public/CMakeFiles/edit_cache.dir
+/home/tsoj/Dokumente/Projects/glome_public/CMakeFiles/glome.dir
