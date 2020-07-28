@@ -1,5 +1,6 @@
 #pragma once
 
+#include <stdexcept>
 #include <bitset>
 #include <vector>
 #include <memory>
