@@ -4,11 +4,11 @@
 
 int main()
 {
-    int Error = 0;
+	int Error = 0;
 
-    float const f = glm::cross(glm::vec2(1.0f, 1.0f), glm::vec2(1.0f, 1.0f));
-    Error += glm::epsilonEqual(f, 0.0f, 0.001f) ? 0 : 1;
+	float const f = glm::cross(glm::vec2(1.0f, 1.0f), glm::vec2(1.0f, 1.0f));
+	Error += glm::epsilonEqual(f, 0.0f, 0.001f) ? 0 : 1;
 
-    return Error;
+	return Error;
 }
 

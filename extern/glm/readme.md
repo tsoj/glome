@@ -19,7 +19,7 @@ This library works perfectly with *[OpenGL](https://www.opengl.org)* but it also
 - Any C++11 compiler
 
 For more information about *GLM*, please have a look at the [manual](manual.md) and the [API reference documentation](http://glm.g-truc.net/0.9.8/api/index.html).
-The source code and the documentation are licensed under both the [Happy Bunny License (Modified MIT) or the MIT License](manual.md#section0).
+The source code and the documentation are licensed under either the [Happy Bunny License (Modified MIT) or the MIT License](manual.md#section0).
 
 Thanks for contributing to the project by [submitting issues](https://github.com/g-truc/glm/issues) for bug reports and feature requests. Any feedback is welcome at [glm@g-truc.net](mailto://glm@g-truc.net).
 
@@ -29,7 +29,7 @@ Thanks for contributing to the project by [submitting issues](https://github.com
 #include <glm/mat4x4.hpp> // glm::mat4
 #include <glm/ext/matrix_transform.hpp> // glm::translate, glm::rotate, glm::scale
 #include <glm/ext/matrix_clip_space.hpp> // glm::perspective
-#include <glm/ext/constants.hpp> // glm::pi
+#include <glm/ext/scalar_constants.hpp> // glm::pi
 
 glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 {
@@ -53,18 +53,39 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 
 ## Release notes
 
-### [GLM 0.9.9.7](https://github.com/g-truc/glm/releases/latest) - 2019-XX-XX
+### [GLM 0.9.9.9](https://github.com/g-truc/glm/commits/master) - 2020-XX-XX
+#### Fixes:
+- Fixed incorrect assertion for min and max #1009
+
+### [GLM 0.9.9.8](https://github.com/g-truc/glm/releases/tag/0.9.9.8) - 2020-04-13
+#### Features:
+- Added GLM_EXT_vector_intX* and GLM_EXT_vector_uintX* extensions
+- Added GLM_EXT_matrix_intX* and GLM_EXT_matrix_uintX* extensions
+
+#### Improvements:
+- Added clamp, repeat, mirrorClamp and mirrorRepeat function to GLM_EXT_scalar_commond and GLM_EXT_vector_commond extensions with tests
+
+#### Fixes:
+- Fixed unnecessary warnings from matrix_projection.inl #995
+- Fixed quaternion slerp overload which interpolates with extra spins #996
+- Fixed for glm::length using arch64 #992
+- Fixed singularity check for quatLookAt #770
+
+### [GLM 0.9.9.7](https://github.com/g-truc/glm/releases/tag/0.9.9.7) - 2020-01-05
 #### Improvements:
 - Improved Neon support with more functions optimized #950
 - Added CMake GLM interface #963
 - Added fma implementation based on std::fma #969
 - Added missing quat constexpr #955
+- Added GLM_FORCE_QUAT_DATA_WXYZ to store quat data as w,x,y,z instead of x,y,z,w #983
 
 #### Fixes:
 - Fixed equal ULP variation when using negative sign #965
 - Fixed for intersection ray/plane and added related tests #953
 - Fixed ARM 64bit detection #949
 - Fixed GLM_EXT_matrix_clip_space warnings #980
+- Fixed Wimplicit-int-float-conversion warnings with clang 10+ #986
+- Fixed EXT_matrix_clip_space perspectiveFov
 
 ### [GLM 0.9.9.6](https://github.com/g-truc/glm/releases/tag/0.9.9.6) - 2019-09-08
 #### Features:
@@ -228,7 +249,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Fixed GLM_HAS_OPENMP when OpenMP is not enabled
 - Fixed Better follow GLSL min and max specification #372
 - Fixed quaternion constructor from two vectors special cases #469
-- Fixed glm::toString on quaternions wrong components order #681
+- Fixed glm::to_string on quaternions wrong components order #681
 - Fixed acsch #698
 - Fixed isnan on CUDA #727
 
@@ -381,7 +402,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Fixed uaddCarry warning #497
 - Fixed roundPowerOfTwo and floorPowerOfTwo #503
 - Fixed Visual C++ SIMD instruction set automatic detection in 64 bits
-- Fixed toString when used with GLM_FORCE_INLINE #506
+- Fixed to_string when used with GLM_FORCE_INLINE #506
 - Fixed GLM_FORCE_INLINE with binary vec4 operators
 - Fixed GTX_extended_min_max filename typo #386
 - Fixed intersectRayTriangle to not do any unintentional backface culling
@@ -426,7 +447,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 ### [GLM 0.9.7.1](https://github.com/g-truc/glm/releases/tag/0.9.7.1) - 2015-09-07
 #### Improvements:
 - Improved constexpr for constant functions coverage #198
-- Added toString for quat and dual_quat in GTX_string_cast #375
+- Added to_string for quat and dual_quat in GTX_string_cast #375
 - Improved overall execution time of unit tests #396
 
 #### Fixes:
@@ -520,7 +541,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Fixed scalar uaddCarry build error with Cuda #276
 - Fixed C++11 explicit conversion operators detection #282
 - Fixed missing explicit conversion when using integer log2 with *vec1 types
-- Fixed 64 bits integer GTX_string_cast toString on VC 32 bit compiler
+- Fixed 64 bits integer GTX_string_cast to_string on VC 32 bit compiler
 - Fixed Android build issue, STL C++11 is not supported by the NDK #284
 - Fixed unsupported _BitScanForward64 and _BitScanReverse64 in VC10
 - Fixed Visual C++ 32 bit build #283

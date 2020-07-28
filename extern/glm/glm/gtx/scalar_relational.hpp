@@ -25,12 +25,12 @@
 
 namespace glm
 {
-    /// @addtogroup gtx_scalar_relational
-    /// @{
+	/// @addtogroup gtx_scalar_relational
+	/// @{
 
 
 
-    /// @}
+	/// @}
 }//namespace glm
 
 #include "scalar_relational.inl"

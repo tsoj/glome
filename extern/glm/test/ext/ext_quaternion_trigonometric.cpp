@@ -7,28 +7,28 @@ float const Epsilon = 0.001f;
 
 static int test_angle()
 {
-    int Error = 0;
+	int Error = 0;
 
-    {
-        glm::quat const Q = glm::quat(glm::vec3(1, 0, 0), glm::vec3(0, 1, 0));
-        float const A = glm::degrees(glm::angle(Q));
-        Error += glm::equal(A, 90.0f, Epsilon) ? 0 : 1;
-    }
+	{
+		glm::quat const Q = glm::quat(glm::vec3(1, 0, 0), glm::vec3(0, 1, 0));
+		float const A = glm::degrees(glm::angle(Q));
+		Error += glm::equal(A, 90.0f, Epsilon) ? 0 : 1;
+	}
 
-    {
-        glm::quat const Q = glm::quat(glm::vec3(0, 1, 0), glm::vec3(1, 0, 0));
-        float const A = glm::degrees(glm::angle(Q));
-        Error += glm::equal(A, 90.0f, Epsilon) ? 0 : 1;
-    }
+	{
+		glm::quat const Q = glm::quat(glm::vec3(0, 1, 0), glm::vec3(1, 0, 0));
+		float const A = glm::degrees(glm::angle(Q));
+		Error += glm::equal(A, 90.0f, Epsilon) ? 0 : 1;
+	}
 
-    return Error;
+	return Error;
 }
 
 int main()
 {
-    int Error = 0;
+	int Error = 0;
 
-    Error += test_angle();
+	Error += test_angle();
 
-    return Error;
+	return Error;
 }

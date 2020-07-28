@@ -5,13 +5,13 @@
 
 int main()
 {
-    int Error = 0;
+	int Error = 0;
 
-    glm::ivec4 B(1);
-    Error += B == glm::ivec4(1) ? 0 : 1;
+	glm::ivec4 B(1);
+	Error += B == glm::ivec4(1) ? 0 : 1;
 
-    //glm::vec4 A = B;
+	//glm::vec4 A = B;
 
-    return Error;
+	return Error;
 }
 

@@ -4,7 +4,7 @@ var searchData=
   ['tanh',['tanh',['../a00373.html#gaa1bccbfdcbe40ed2ffcddc2aa8bfd0f1',1,'glm']]],
   ['third',['third',['../a00290.html#ga3077c6311010a214b69ddc8214ec13b5',1,'glm']]],
   ['three_5fover_5ftwo_5fpi',['three_over_two_pi',['../a00290.html#gae94950df74b0ce382b1fc1d978ef7394',1,'glm']]],
-  ['to_5fstring',['toString',['../a00360.html#ga8f0dced1fd45e67e2d77e80ab93c7af5',1,'glm']]],
+  ['to_5fstring',['to_string',['../a00360.html#ga8f0dced1fd45e67e2d77e80ab93c7af5',1,'glm']]],
   ['tomat3',['toMat3',['../a00352.html#gaab0afabb894b28a983fb8ec610409d56',1,'glm']]],
   ['tomat4',['toMat4',['../a00352.html#gadfa2c77094e8cc9adad321d938855ffb',1,'glm']]],
   ['toquat',['toQuat',['../a00352.html#ga798de5d186499c9a9231cd92c8afaef1',1,'glm::toQuat(mat&lt; 3, 3, T, Q &gt; const &amp;x)'],['../a00352.html#ga5eb36f51e1638e710451eba194dbc011',1,'glm::toQuat(mat&lt; 4, 4, T, Q &gt; const &amp;x)']]],

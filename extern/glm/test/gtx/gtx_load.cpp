@@ -1,7 +1,5 @@
 #define GLM_ENABLE_EXPERIMENTAL
-
 #include <glm/glm.hpp>
-
 /*
 #if GLM_CONFIG_SIMD == GLM_ENABLE
 
@@ -116,11 +114,11 @@ int test_vec4_load()
 */
 int main()
 {
-    int Error = 0;
+	int Error = 0;
 /*
 #	if GLM_CONFIG_SIMD == GLM_ENABLE
 		Error += test_vec4_load();
 #	endif
 */
-    return Error;
+	return Error;
 }
