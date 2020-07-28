@@ -97,6 +97,7 @@ namespace ec_system
         {
             if (!hasEntity(entity))
             {
+                // TODO: replace exceptions with assert variant
                 throw std::runtime_error(
                     std::string(__FILE__) + ":" + std::to_string(__LINE__) + ": " +
                     "Can't remove entity. Entity doesn't exists.");
