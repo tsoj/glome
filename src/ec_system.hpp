@@ -8,6 +8,7 @@
 #include <cassert>
 #include <any>
 #include <algorithm>
+#include <optional>
 
 namespace ec_system
 {
