@@ -24,9 +24,9 @@ uniform int num_lights;
 
 void main()
 {
-    vec4 diffuse = texture2D(diffuse_texture, vs_out.texture_coordinate);
+    vec4 diffuse = texture(diffuse_texture, vs_out.texture_coordinate);
     vec4 normal =
-    vs_out.tangent_to_world_space*vec4(normalize(texture2D(normal_map, vs_out.texture_coordinate).rbg * 2.0 - vec3(1.0, 1.0, 1.0)), 0.0);
+    vs_out.tangent_to_world_space*vec4(normalize(texture(normal_map, vs_out.texture_coordinate).rbg * 2.0 - vec3(1.0, 1.0, 1.0)), 0.0);
 
     // TODO: Class 3: implement square law for light intensity
     vec3 diffuse_light = vec3(0.0);

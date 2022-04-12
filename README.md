@@ -28,8 +28,8 @@ make
 
 ##### Controls:
 
-AWSDQE for roll, pitch and yaw
-arrow keys for lateral movement
+AWSDQE for roll, pitch and yaw.  
+Arrow keys for lateral movement.
 
 ###### More in `about.pdf`
 

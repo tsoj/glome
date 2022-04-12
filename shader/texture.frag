@@ -11,5 +11,5 @@ uniform sampler2D image;
 
 void main()
 {
-    out_color = texture2D(image, vs_out.texture_coordinate);
+    out_color = texture(image, vs_out.texture_coordinate);
 }
