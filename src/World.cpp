@@ -286,80 +286,87 @@ void World::loop()
 
 
 #ifdef USE_ASCII_FRAMEBUFFER
-
-        utility::text_buffer.setChar(utility::text_buffer.width() - (logo_width + 12), 2, logo);
-        utility::text_buffer.setTextColor(utility::text_buffer.width() - (logo_width + 12), 2,
-                                          logo_width, logo_height, {220, 220, 50});
-        utility::text_buffer.setStyle(utility::text_buffer.width() - (logo_width + 12), 2,
-                                      logo_width, logo_height, ascii_framebuffer::bold);
-        utility::text_buffer.setChar(utility::text_buffer.width() - (logo_width + 12) + 26, logo_height + 4,
-                                     {"Copyright (c) 2020 Jost Triller"}
-        );
-
-        int current_row = 0;
-        for (const auto entity : ((const ec_system::EntityManager&) m_entity_manager).iterator<Name, Orientation3D, HypersphereOrientation>())
+        if (lastFramebufferPrint >= printFramebufferFrameFrequencey)
         {
-            const std::string& name = m_entity_manager.get<Name>(entity);
-            if (
-                std::find(m_ascii_framebuffer_debug_name_list.begin(), m_ascii_framebuffer_debug_name_list.end(), name) !=
-                m_ascii_framebuffer_debug_name_list.end()
-                )
+            lastFramebufferPrint = 0;
+            utility::text_buffer.setChar(utility::text_buffer.width() - (logo_width + 12), 2, logo);
+            utility::text_buffer.setTextColor(utility::text_buffer.width() - (logo_width + 12), 2,
+                                            logo_width, logo_height, {220, 220, 50});
+            utility::text_buffer.setStyle(utility::text_buffer.width() - (logo_width + 12), 2,
+                                        logo_width, logo_height, ascii_framebuffer::bold);
+            utility::text_buffer.setChar(utility::text_buffer.width() - (logo_width + 12) + 26, logo_height + 4,
+                                        {"Copyright (c) 2020 Jost Triller"}
+            );
+
+            int current_row = 0;
+            for (const auto entity : ((const ec_system::EntityManager&) m_entity_manager).iterator<Name, Orientation3D, HypersphereOrientation>())
             {
-                const auto id = entity.getId();
-                const HypersphereOrientation& entity_hypersphere_orientation = m_entity_manager.get<HypersphereOrientation>(entity);
-                const auto& orientation = m_entity_manager.get<Orientation3D>(entity);
+                const std::string& name = m_entity_manager.get<Name>(entity);
+                if (
+                    std::find(m_ascii_framebuffer_debug_name_list.begin(), m_ascii_framebuffer_debug_name_list.end(), name) !=
+                    m_ascii_framebuffer_debug_name_list.end()
+                    )
+                {
+                    const auto id = entity.getId();
+                    const HypersphereOrientation& entity_hypersphere_orientation = m_entity_manager.get<HypersphereOrientation>(entity);
+                    const auto& orientation = m_entity_manager.get<Orientation3D>(entity);
 
-                const auto& camera_hypersphere_orientation = m_entity_manager.get<HypersphereOrientation>(m_camera_entity);
-                const auto& camera_orientation = m_entity_manager.get<Orientation3D>(m_camera_entity);
-                const auto& field_of_view = m_entity_manager.get<World::Camera>(m_camera_entity).field_of_view;
-                const float aspect_ratio = (float) m_window->width() / (float) m_window->height();
+                    const auto& camera_hypersphere_orientation = m_entity_manager.get<HypersphereOrientation>(m_camera_entity);
+                    const auto& camera_orientation = m_entity_manager.get<Orientation3D>(m_camera_entity);
+                    const auto& field_of_view = m_entity_manager.get<World::Camera>(m_camera_entity).field_of_view;
+                    const float aspect_ratio = (float) m_window->width() / (float) m_window->height();
 
-                const Metre<float> camera_distance = glm::hs::distanceOnHypersphere(
-                    entity_hypersphere_orientation.coord(), camera_hypersphere_orientation.coord(), m_radius);
-                const Radian<float> camera_angle = glm::hs::angleDistance(m_radius, camera_distance) * radian;
+                    const Metre<float> camera_distance = glm::hs::distanceOnHypersphere(
+                        entity_hypersphere_orientation.coord(), camera_hypersphere_orientation.coord(), m_radius);
+                    const Radian<float> camera_angle = glm::hs::angleDistance(m_radius, camera_distance) * radian;
 
-                const glm::vec3 screen_coord = glm::hs::getViewSpaceCoords(
-                    glm::hs::getViewAngles(camera_orientation, camera_hypersphere_orientation, entity_hypersphere_orientation.coord(), m_radius),
-                    field_of_view, aspect_ratio, m_far_plane
-                );
+                    const glm::vec3 screen_coord = glm::hs::getViewSpaceCoords(
+                        glm::hs::getViewAngles(camera_orientation, camera_hypersphere_orientation, entity_hypersphere_orientation.coord(), m_radius),
+                        field_of_view, aspect_ratio, m_far_plane
+                    );
 
-                const std::vector<std::string> box = {
-                    "name: " + name,
-                    "id: " + std::to_string(id),
-                    "coord: " + utility::toString(entity_hypersphere_orientation.coord()),
-                    "camera distance: " + std::to_string(camera_distance) + " metre",
-                    "camera angle: " + std::to_string(glm::degrees(camera_angle.value)) + " deg",
-                    "screen coord: " + utility::toString(screen_coord),
-                    "orientation:",
-                    "    x: " + utility::toString(orientation[0]),
-                    "    y: " + utility::toString(orientation[1]),
-                    "    z: " + utility::toString(orientation[2])
-                };
-                utility::text_buffer.setChar(0, current_row, box);
-                current_row += box.size() + 1;
+                    const std::vector<std::string> box = {
+                        "name: " + name,
+                        "id: " + std::to_string(id),
+                        "coord: " + utility::toString(entity_hypersphere_orientation.coord()),
+                        "camera distance: " + std::to_string(camera_distance) + " metre",
+                        "camera angle: " + std::to_string(glm::degrees(camera_angle.value)) + " deg",
+                        "screen coord: " + utility::toString(screen_coord),
+                        "orientation:",
+                        "    x: " + utility::toString(orientation[0]),
+                        "    y: " + utility::toString(orientation[1]),
+                        "    z: " + utility::toString(orientation[2])
+                    };
+                    utility::text_buffer.setChar(0, current_row, box);
+                    current_row += box.size() + 1;
+                }
             }
+
+            utility::text_buffer.setChar(0, current_row, {
+                "rendering time: " + std::to_string(rendering_time.count() / 1000.0) + " ms"
+            });
+            current_row += 1;
+
+            const int cout_width = utility::text_buffer.width() - (logo_width + 12 + 2);
+            const int cout_height = utility::text_buffer.height() - current_row - 4;
+            // is way to slow: 
+            //utility::text_buffer.setCoutHistory(2, utility::text_buffer.height() - (cout_height + 1), cout_width, cout_height);
+            utility::text_buffer.setBackgroundColor(
+                0, utility::text_buffer.height() - (cout_height + 2), cout_width + 4, cout_height + 2,
+                {100, 100, 100});
+            utility::text_buffer.setBackgroundColor(2, utility::text_buffer.height() - (cout_height + 1), cout_width, cout_height,
+                                                    {50, 50, 50});
+            utility::text_buffer.setTextColor(2, utility::text_buffer.height() - (cout_height + 1), cout_width, cout_height,
+                                            {50, 220, 60});
+            utility::text_buffer.setStyle(2, utility::text_buffer.height() - (cout_height + 1), cout_width, cout_height,
+                                        ascii_framebuffer::italic);
+
+            utility::text_buffer.print();
+            utility::text_buffer.clear({20, 20, 40}, {220, 220, 220}, ' ');
         }
-
-        utility::text_buffer.setChar(0, current_row, {
-            "rendering time: " + std::to_string(rendering_time.count() / 1000.0) + " ms"
-        });
-        current_row += 1;
-
-        const int cout_width = utility::text_buffer.width() - (logo_width + 12 + 2);
-        const int cout_height = utility::text_buffer.height() - current_row - 4;
-        utility::text_buffer.setCoutHistory(2, utility::text_buffer.height() - (cout_height + 1), cout_width, cout_height);
-        utility::text_buffer.setBackgroundColor(
-            0, utility::text_buffer.height() - (cout_height + 2), cout_width + 4, cout_height + 2,
-            {100, 100, 100});
-        utility::text_buffer.setBackgroundColor(2, utility::text_buffer.height() - (cout_height + 1), cout_width, cout_height,
-                                                {50, 50, 50});
-        utility::text_buffer.setTextColor(2, utility::text_buffer.height() - (cout_height + 1), cout_width, cout_height,
-                                          {50, 220, 60});
-        utility::text_buffer.setStyle(2, utility::text_buffer.height() - (cout_height + 1), cout_width, cout_height,
-                                      ascii_framebuffer::italic);
-
-        utility::text_buffer.print();
-        utility::text_buffer.clear({20, 20, 40}, {220, 220, 220}, ' ');
+        else {
+            lastFramebufferPrint += 1;
+        }
 #endif
     }
 }

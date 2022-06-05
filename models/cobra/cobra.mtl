@@ -1,0 +1,6 @@
+# Exported with Dat2ObjTex.py (C) Giles Williams 2005 - Kaks 2008
+
+newmtl Cobra
+map_Kd diffuse.dds
+map_normal normal.dds
+

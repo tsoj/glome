@@ -1,0 +1,6 @@
+# Blender MTL File: 'Mars 2K.blend'
+# Material Count: 4
+
+newmtl Mars
+map_Kd diffuse.dds
+map_normal ../normal_normal_map.dds

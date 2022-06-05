@@ -1,0 +1,7 @@
+# Blender MTL File: 'None'
+# Material Count: 1
+
+newmtl Python
+map_Kd diffuse.dds
+map_normal normal.dds
+

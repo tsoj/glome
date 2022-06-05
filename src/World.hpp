@@ -42,6 +42,8 @@ private:
 
     std::vector<std::string> m_ascii_framebuffer_debug_name_list;
     json m_ascii_framebuffer_json;
+    static constexpr int printFramebufferFrameFrequencey = 15;
+    int lastFramebufferPrint = 0;
 
     void addComponentFromJsonOrientation3D(const json& object, const ec_system::Entity& entity);
 

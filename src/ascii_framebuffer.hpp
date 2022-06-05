@@ -57,8 +57,6 @@ namespace ascii_framebuffer
         std::streambuf* m_original_coutbuf;
         std::stringstream m_redirect_cout;
 
-        static constexpr int frametime = 16;
-
         [[nodiscard]] size_t getIndex(const int col, const int row) const
         {
             assert(row < m_height && col < m_width && row >= 0 && col >= 0);
@@ -322,6 +320,7 @@ namespace ascii_framebuffer
         {
             const auto printer = [this]()
             {
+
                 std::stringstream output;
                 output << "\033[0;0H"; // move cursor to the top left corner
                 for (int row = 0; row < m_height; row++)
@@ -348,7 +347,6 @@ namespace ascii_framebuffer
                 std::cout.rdbuf(m_original_coutbuf);
                 std::cout << output.rdbuf() << std::flush;
                 std::cout.rdbuf(m_redirect_cout.rdbuf());
-                std::this_thread::sleep_for(std::chrono::milliseconds(frametime));
             };
 
             if (m_printer_thread.joinable())
