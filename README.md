@@ -1,20 +1,17 @@
-## Glome
+<div align="center">
+<img src="./meta/glome.png" width="400" height="400" />
 
-<img src="https://gitlab.com/tsoj/glome_public/-/raw/master/meta/glome.png" width="400" height="400" />
+**Renders 3D objects in the surface of a hypersphere.**
 
-Renders 3D objects in the surface of a hypersphere.
+<img src="./demo_img.jpeg" width="600"/>
+</div>
 
 ##### Download:
 with [Git](https://git-scm.com/):
 ```
 git clone https://gitlab.com/tsoj/glome_public.git
 ```
-with [Wget](https://www.gnu.org/software/wget/) and [Tar](https://www.gnu.org/software/tar/tar.html) (only works if repository is public):
-```
-wget https://gitlab.com/tsoj/glome_public/-/archive/master/glome_public-master.tar.gz
-tar -xvzf glome_public-master.tar.gz
-mv glome_public-master glome_public
-```
+
 ##### Compile
 ```
 cd glome_public/
@@ -29,7 +26,7 @@ make
 ##### Controls:
 
 AWSDQE for roll, pitch and yaw.  
-Arrow keys for lateral movement.
+Arrow keys and PgUp, PgDown for lateral movement.
 
-###### More in `about.pdf`
+###### More in [`about.pdf`](./about.pdf)
 
