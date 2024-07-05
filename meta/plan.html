@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2024a"><title>Untitled</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 10px 0px 20px 0px; padding-left: 0px; font-family: Helvetica, Arial, sans-serif; font-size: 14px;  }
+.S1 { margin-left: 56px; line-height: 21px; min-height: 0px; text-align: left; white-space: pre-wrap;  }</style></head><body><div class = rtcContent><ul  class = 'S0'><li  class = 'S1'><span>Coordinates are described as normalized 4D-vectors.</span></li><li  class = 'S1'><span>Directional Vectors in the curved 3D Hypersphere surface are described as two 4D coordinate vectors.</span></li><li  class = 'S1'><span>Orientation of an object is discribed as three 4D-vectors that always all need to be orthogonal to the current 4D-coordinate vector.</span></li><li  class = 'S1'><span>Lateral translation is described as directional Vector (two 4D-coordinate-vectors) and an angle. The coordinate of the object will then be rotated in 4D space around the plane that is orthogonal to the two 4D-coordinate-vectors (the directional vector) with the amount of the given angle. Important is to also rotate the orientation of this object while translating. The three 4D-orientation-vectors will be multiplied with the same rotation matrix as the 4D-coordinate vector.</span></li><li  class = 'S1'><span>Local directional vectors at a point can be calculated by finding the plane that is orthogonal to the two point of a curved-directional-vector. The 4D-vector that is orthogonal to that plane and the 4D-coordinate-vector of the point (can be calculated by the 4D-crossproduct) is the local directional vector.</span></li><li  class = 'S1'><span>Angle to up- and right-angle of camera to object can be calculated by: Find the local-directional-vector at the camera point to the object point. Then project the local-direction-vector on each three of the camera orientation vectors. This way it is possible to calculate the angle between the camera view direction and and the local-direction-vector regarding the vertical and horizontal viewport.</span></li><li  class = 'S1'><span>3D models are represented as a classic set of 3D vectors thet describe the triangle vertecies.</span></li><li  class = 'S1'><span>Given a 4D-coordinate-vector position and a 4D orientation of an object and a 3D-model-vertex the 4D position of this vertex can be calculated the following way: add a new fourth dimension to the vertex and set this new value to 0. Create a 4D matrix that has the three 4D-orientation-vectors of that object as first three columns and the 4D-coordinate-vector in the fourth column, all these four vectors need to be normalized.</span></li></ul>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% 
+% * Coordinates are described as normalized 4D-vectors.
+% * Directional Vectors in the curved 3D Hypersphere surface are described as 
+% two 4D coordinate vectors.
+% * Orientation of an object is discribed as three 4D-vectors that always all 
+% need to be orthogonal to the current 4D-coordinate vector.
+% * Lateral translation is described as directional Vector (two 4D-coordinate-vectors) 
+% and an angle. The coordinate of the object will then be rotated in 4D space 
+% around the plane that is orthogonal to the two 4D-coordinate-vectors (the directional 
+% vector) with the amount of the given angle. Important is to also rotate the 
+% orientation of this object while translating. The three 4D-orientation-vectors 
+% will be multiplied with the same rotation matrix as the 4D-coordinate vector.
+% * Local directional vectors at a point can be calculated by finding the plane 
+% that is orthogonal to the two point of a curved-directional-vector. The 4D-vector 
+% that is orthogonal to that plane and the 4D-coordinate-vector of the point (can 
+% be calculated by the 4D-crossproduct) is the local directional vector.
+% * Angle to up- and right-angle of camera to object can be calculated by: Find 
+% the local-directional-vector at the camera point to the object point. Then project 
+% the local-direction-vector on each three of the camera orientation vectors. 
+% This way it is possible to calculate the angle between the camera view direction 
+% and and the local-direction-vector regarding the vertical and horizontal viewport.
+% * 3D models are represented as a classic set of 3D vectors thet describe the 
+% triangle vertecies.
+% * Given a 4D-coordinate-vector position and a 4D orientation of an object 
+% and a 3D-model-vertex the 4D position of this vertex can be calculated the following 
+% way: add a new fourth dimension to the vertex and set this new value to 0. Create 
+% a 4D matrix that has the three 4D-orientation-vectors of that object as first 
+% three columns and the 4D-coordinate-vector in the fourth column, all these four 
+% vectors need to be normalized.
+##### SOURCE END #####
+-->
+</div></body></html>
