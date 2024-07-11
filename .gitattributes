@@ -1,2 +1,2 @@
-extern/** linguist-vendored
-extern/**/* linguist-vendored
+extern/** linguist-vendored=true
+extern/**/* linguist-vendored=true
