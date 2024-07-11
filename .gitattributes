@@ -1,2 +1,4 @@
 extern/** linguist-vendored=true
 extern/**/* linguist-vendored=true
+meta/** linguist-vendored=true
+meta/**/* linguist-vendored=true
