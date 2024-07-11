@@ -9,12 +9,12 @@
 ##### Download:
 with [Git](https://git-scm.com/):
 ```
-git clone https://gitlab.com/tsoj/glome_public.git
+git clone https://github.com/tsoj/glome.git
 ```
 
 ##### Compile
 ```
-cd glome_public/
+cd glome/
 cmake .
 make
 ```
