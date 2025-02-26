@@ -10,7 +10,7 @@ if (NOT CMAKE_BUILD_TYPE)
     #set(CMAKE_BUILD_TYPE Release)
 endif ()
 
-set(CMAKE_CXX_FLAGS "-Wall -Wextra -pedantic -Wshadow")
+set(CMAKE_CXX_FLAGS "-Wall -Wextra -pedantic -Wshadow -Wno-missing-template-arg-list-after-template-kw")
 set(CMAKE_CXX_FLAGS_DEBUG "-O2 -g -fno-omit-frame-pointer -DUSE_ASCII_FRAMEBUFFER")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
 
