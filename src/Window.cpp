@@ -18,8 +18,9 @@ Window::Window(int w, int h, const char* title)
     }
     glfwMakeContextCurrent(m_glfw_window);
 
+    glewExperimental = GL_TRUE;
     GLenum err = glewInit();
-    if (GLEW_OK != err)
+    if (GLEW_OK != err && GLEW_ERROR_NO_GLX_DISPLAY != err)
     {
         throw std::runtime_error("Failed to initialize GLEW: " + std::string((char*) glewGetErrorString(err)) + "\n");
     }
